@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { autenticar, permitirRoles } from '../middleware/autenticacion.js'
+import { autenticarConfiguracion } from '../middleware/sesionComite.js'
 import {
   crearAsignacionesTrabajo,
   obtenerHistorialAsignacionesTrabajo,
@@ -12,7 +13,7 @@ const router = Router()
 const comite = permitirRoles('committee')
 const autor = permitirRoles('author', 'both')
 
-router.get('/trabajos', autenticar, comite, (req, res, next) => {
+router.get('/trabajos', autenticarConfiguracion, comite, (req, res, next) => {
   if (req.query.vista === 'recibidos') return obtenerTrabajosRecibidos(req, res, next)
   return trabajos_revisiones(req, res)
 })

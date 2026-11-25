@@ -84,6 +84,7 @@ function fichaRevision(revision, asignacion, catalogo = []) {
     trabajoId: asignacion.workId,
     revisorId: asignacion.reviewerId,
     fechaLimite: asignacion.dueDate,
+    fechaEnvio: revision.submittedAt,
     estado: revision.status === 'submitted' ? 'enviada' : 'borrador',
     recomendacion: recomendacionPublica[revision.recommendation] ?? '',
     comentarioAutor: revision.authorComment,

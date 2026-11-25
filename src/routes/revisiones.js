@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import { autenticar, permitirRoles } from '../middleware/autenticacion.js'
+import { permitirRoles } from '../middleware/autenticacion.js'
+import { autenticarConfiguracion as autenticar } from '../middleware/sesionComite.js'
 import {
   consolidado,
   decisiones,
